@@ -16,6 +16,7 @@ app.get('/', (req, res) => {
 
 async function start() {
     try {
+        await sequelize.sync();
         await sequelize.authenticate();
         console.log("Соединение с бд установлено");
         app.listen(PORT, () => {
